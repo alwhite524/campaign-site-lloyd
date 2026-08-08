@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer — Lloyd White for Beaumont City Council</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">Lloyd White <strong>&bull;</strong> Beaumont City Council</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="volunteer.html" class="active">Volunteer</a></li>
+      <li><a href="donate.html" class="btn-donate">Donate</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom:40px;">
+  <div class="wrap" style="max-width:640px;">
+    <span class="eyebrow">Get involved</span>
+    <h1 style="font-size:clamp(2rem,4vw,2.8rem);">Volunteer with the campaign</h1>
+    <p class="hero-tagline">Knock doors, make calls, host a meet-and-greet, or just put a sign in your yard — every bit of help gets Lloyd closer to Election Day.</p>
+  </div>
+</header>
+
+<section class="ink" style="padding:0;">
+  <div class="wrap stat-strip">
+    <div><span class="num">[#]</span><span class="label">Volunteers signed up</span></div>
+    <div><span class="num">[#]</span><span class="label">Doors knocked</span></div>
+    <div><span class="num">[#]</span><span class="label">Yard signs placed</span></div>
+  </div>
+</section>
+
+<section style="padding-top:56px;">
+  <div class="wrap" style="max-width:640px;">
+    <div class="section-head">
+      <span class="eyebrow">Sign up</span>
+      <h2>Join the volunteer team</h2>
+    </div>
+
+    <form class="form-card" onsubmit="return false;">
+      <fieldset>
+        <legend>Your info</legend>
+        <div class="field-row">
+          <div class="field">
+            <label for="v-first">First name</label>
+            <input type="text" id="v-first" required>
+          </div>
+          <div class="field">
+            <label for="v-last">Last name</label>
+            <input type="text" id="v-last" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="v-email">Email</label>
+          <input type="email" id="v-email" required>
+        </div>
+        <div class="field">
+          <label for="v-phone">Phone</label>
+          <input type="tel" id="v-phone">
+        </div>
+        <div class="field">
+          <label for="v-zip">ZIP code</label>
+          <input type="text" id="v-zip">
+          <p class="hint">Helps us match you to volunteer shifts and events near you.</p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>How you'd like to help</legend>
+        <div class="checkbox-group">
+          <label><input type="checkbox"> Canvassing / door-knocking</label>
+          <label><input type="checkbox"> Phone or text banking</label>
+          <label><input type="checkbox"> Hosting an event at my home</label>
+          <label><input type="checkbox"> Data entry / office support</label>
+          <label><input type="checkbox"> Poll watching / Election Day support</label>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn btn-primary" style="width:100%;">Sign me up</button>
+    </form>
+  </div>
+</section>
+
+<section class="dim" style="padding-top:56px;">
+  <div class="wrap" style="max-width:640px;">
+    <div class="section-head">
+      <span class="eyebrow">Show your support</span>
+      <h2>Request a yard sign</h2>
+      <p>We'll drop off or mail a sign to the address below. One sign per household unless you tell us otherwise.</p>
+    </div>
+
+    <form class="form-card" onsubmit="return false;">
+      <div class="field-row">
+        <div class="field">
+          <label for="y-first">First name</label>
+          <input type="text" id="y-first" required>
+        </div>
+        <div class="field">
+          <label for="y-last">Last name</label>
+          <input type="text" id="y-last" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="y-address">Delivery address</label>
+        <input type="text" id="y-address" required>
+      </div>
+      <div class="field">
+        <label for="y-phone">Phone or email</label>
+        <input type="text" id="y-phone" placeholder="So a volunteer can coordinate drop-off">
+      </div>
+      <div class="field">
+        <label for="y-qty">Number of signs</label>
+        <select id="y-qty">
+          <option>1</option>
+          <option>2</option>
+          <option>3+</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="y-notes">Notes for the delivery volunteer</label>
+        <textarea id="y-notes" rows="3" placeholder="e.g. best time of day, where to place it, gate code"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Request sign</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Friends of Lloyd White</span>
+    <span class="disclaimer">Paid for by Lloyd White for City Council 2026</span>
+  </div>
+</footer>
+
+</body>
+</html>

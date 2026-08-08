@@ -1,0 +1,494 @@
+/* ==========================================================================
+   Campaign Site Template — shared stylesheet
+   Palette:
+     --ink      #16233A  headlines, nav, primary text
+     --paper    #F6F1E7  page background
+     --signal   #A6362C  primary CTA / donate accent (yard-sign red)
+     --gold     #C79A3C  endorsements / secondary accent
+     --slate    #5B6B7C  muted text, borders
+   Type:
+     Display  — "Fraunces" (heavy, institutional serif)
+     Body     — "Public Sans" (clean, civic-service sans)
+     Utility  — "Space Mono" (eyebrows, labels, ballot-stamp feel)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Public+Sans:wght@400;500;600;700&family=Space+Mono&display=swap');
+
+:root {
+  --ink: #16233A;
+  --paper: #F6F1E7;
+  --paper-dim: #EFE8D9;
+  --signal: #A6362C;
+  --signal-dark: #7E2A21;
+  --gold: #C79A3C;
+  --slate: #5B6B7C;
+  --line: rgba(22, 35, 58, 0.14);
+  --radius: 4px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Public Sans', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  line-height: 1.08;
+  margin: 0 0 0.4em;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 900; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); }
+h3 { font-size: 1.2rem; }
+
+p { margin: 0 0 1em; color: var(--ink); }
+
+a { color: var(--signal); }
+
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  display: block;
+  margin-bottom: 0.6em;
+}
+
+/* ---------- layout shells ---------- */
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ---------- nav ---------- */
+
+.site-nav {
+  border-bottom: 3px solid var(--ink);
+  background: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.site-nav .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.brand strong { color: var(--signal); }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  border-bottom-color: var(--signal);
+}
+
+.nav-links a.btn-donate {
+  background: var(--signal);
+  color: var(--paper);
+  padding: 9px 18px;
+  border-radius: var(--radius);
+  border-bottom: none;
+}
+
+.nav-links a.btn-donate:hover { background: var(--signal-dark); }
+
+/* ---------- buttons ---------- */
+
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'Public Sans', sans-serif;
+}
+
+.btn-primary {
+  background: var(--signal);
+  color: var(--paper);
+}
+.btn-primary:hover { background: var(--signal-dark); }
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.btn-outline:hover { background: var(--ink); color: var(--paper); }
+
+/* ---------- hero ---------- */
+
+.hero {
+  padding: 76px 0 64px;
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero-photo {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  object-fit: cover;
+  object-position: top center;
+  width: 100%;
+  display: block;
+  border: 3px solid var(--ink);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  color: var(--slate);
+  max-width: 46ch;
+}
+
+/* ---------- yard-sign card (signature element) ---------- */
+
+.sign {
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: 6px;
+  padding: 26px 24px 22px;
+  position: relative;
+  box-shadow: 5px 5px 0 var(--line);
+}
+
+.sign::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -34px;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 34px;
+  background: var(--slate);
+  opacity: 0.55;
+}
+
+.sign.tilt-l { transform: rotate(-1.4deg); }
+.sign.tilt-r { transform: rotate(1.2deg); }
+
+.sign-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 46px 32px;
+  padding: 8px 0 56px;
+}
+
+@media (max-width: 760px) {
+  .sign-row { grid-template-columns: 1fr; gap: 50px 0; }
+  .sign.tilt-l, .sign.tilt-r { transform: none; }
+}
+
+.sign blockquote {
+  margin: 0 0 14px;
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.sign cite {
+  font-style: normal;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--slate);
+}
+
+/* ---------- sections ---------- */
+
+section { padding: 64px 0; }
+section.dim { background: var(--paper-dim); }
+section.ink { background: var(--ink); color: var(--paper); }
+section.ink h2, section.ink .eyebrow { color: var(--paper); }
+section.ink .eyebrow { color: rgba(246,241,231,0.6); }
+
+.section-head {
+  max-width: 60ch;
+  margin-bottom: 40px;
+}
+
+/* bio / issues grid */
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+@media (max-width: 760px) {
+  .two-col, .hero-grid { grid-template-columns: 1fr; }
+  .hero-grid { gap: 36px; }
+}
+
+.issue-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.issue-list li {
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 2.4em 1fr;
+  gap: 18px;
+}
+
+.issue-list li:last-child { border-bottom: 1px solid var(--line); }
+
+.issue-num {
+  font-family: 'Space Mono', monospace;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+/* CTA banner */
+
+.cta-banner {
+  text-align: center;
+  padding: 72px 0;
+}
+
+.cta-banner h2 { margin-bottom: 0.3em; }
+.cta-banner p { color: var(--slate); margin-bottom: 28px; }
+
+/* ---------- forms ---------- */
+
+.form-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 36px;
+}
+
+.field { margin-bottom: 20px; }
+
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.field .hint {
+  font-size: 0.82rem;
+  color: var(--slate);
+  margin-top: 4px;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 3px solid var(--gold);
+  outline-offset: 1px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 560px) {
+  .field-row { grid-template-columns: 1fr; }
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.checkbox-group input { margin-top: 3px; }
+
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin: 0 0 22px;
+}
+
+fieldset legend {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  padding: 0 8px;
+}
+
+/* amount picker for donate page */
+
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 560px) {
+  .amount-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.amount-grid label {
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+  padding: 14px 6px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  position: relative;
+  display: block;
+}
+
+.amount-grid input { position: absolute; opacity: 0; pointer-events: none; }
+
+.amount-grid label:has(input:checked) {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* stat strip */
+
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.stat-strip .num {
+  font-family: 'Fraunces', serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--gold);
+  display: block;
+}
+
+.stat-strip .label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(246,241,231,0.75);
+}
+
+@media (max-width: 700px) {
+  .stat-strip { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* footer */
+
+footer {
+  border-top: 3px solid var(--ink);
+  padding: 34px 0;
+  font-size: 0.85rem;
+  color: var(--slate);
+}
+
+footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.disclaimer {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--slate);
+}
+
+/* small helper */
+.note-box {
+  border-left: 4px solid var(--gold);
+  background: var(--paper-dim);
+  padding: 16px 20px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.92rem;
+  margin-bottom: 24px;
+}
