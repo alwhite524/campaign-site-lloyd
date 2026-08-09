@@ -487,6 +487,16 @@ footer .wrap {
   color: var(--slate);
 }
 
+/* form submit status */
+.form-status {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-height: 1.2em;
+}
+.form-status-success { color: var(--signal-dark); }
+.form-status-error { color: #A3271F; }
+
 /* small helper */
 .note-box {
   border-left: 4px solid var(--gold-deep);
