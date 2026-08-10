@@ -56,9 +56,5 @@ and email you on every submission.
   deployments → edit (pencil icon) → New version → Deploy** for the changes
   to take effect on the existing URL. Just saving in the editor is not
   enough.
-- The stat-strip numbers on the Volunteer page ("Volunteers signed up",
-  "Doors knocked", "Yard signs placed") are still static placeholders —
-  they're not wired to the Sheet's row counts. Say the word if you want
-  those live too (would need a small read-only endpoint and a bit more JS).
 - Anedot (donations) is unrelated to this — that's a separate account with
   its own notification settings, not touched by this setup.

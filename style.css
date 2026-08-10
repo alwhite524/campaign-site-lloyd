@@ -435,36 +435,6 @@ fieldset legend {
   border-color: var(--ink);
 }
 
-/* stat strip */
-
-.stat-strip {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  text-align: center;
-  padding: 40px 0;
-}
-
-.stat-strip .num {
-  font-family: 'Fraunces', serif;
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: var(--gold);
-  display: block;
-}
-
-.stat-strip .label {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(246,241,231,0.75);
-}
-
-@media (max-width: 700px) {
-  .stat-strip { grid-template-columns: 1fr; gap: 32px; }
-}
-
 /* footer */
 
 footer {
