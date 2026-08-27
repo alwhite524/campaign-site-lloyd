@@ -11,6 +11,12 @@
 // Where new-submission notification emails are sent. Change if needed.
 var NOTIFY_EMAIL = 'alwhite524@gmail.com';
 
+// Address(es) CC'd on every notification, comma-separated. Empty string for none.
+var NOTIFY_CC = '';
+
+// Names which campaign site a submission came from; used in the email subject/body.
+var CAMPAIGN_LABEL = 'Lloyd White';
+
 var VOLUNTEER_SHEET = 'Volunteers';
 var VOLUNTEER_HEADERS = ['Timestamp', 'First Name', 'Last Name', 'Email', 'Phone', 'ZIP', 'Interests'];
 
@@ -62,9 +68,10 @@ function handleVolunteer(data) {
   var name = ((data.firstName || '') + ' ' + (data.lastName || '')).trim();
   MailApp.sendEmail({
     to: NOTIFY_EMAIL,
-    subject: 'New volunteer sign-up: ' + (name || 'unknown name'),
+    cc: NOTIFY_CC,
+    subject: '[' + CAMPAIGN_LABEL + '] New volunteer sign-up: ' + (name || 'unknown name'),
     body: [
-      'New volunteer sign-up from the campaign site:',
+      'New volunteer sign-up from the ' + CAMPAIGN_LABEL + ' campaign site:',
       '',
       'Name: ' + name,
       'Email: ' + (data.email || ''),
@@ -94,9 +101,10 @@ function handleYardSign(data) {
   var name = ((data.firstName || '') + ' ' + (data.lastName || '')).trim();
   MailApp.sendEmail({
     to: NOTIFY_EMAIL,
-    subject: 'New yard sign request: ' + (name || 'unknown name'),
+    cc: NOTIFY_CC,
+    subject: '[' + CAMPAIGN_LABEL + '] New yard sign request: ' + (name || 'unknown name'),
     body: [
-      'New yard sign request from the campaign site:',
+      'New yard sign request from the ' + CAMPAIGN_LABEL + ' campaign site:',
       '',
       'Name: ' + name,
       'Delivery address: ' + (data.address || ''),
