@@ -476,3 +476,282 @@ footer .wrap {
   font-size: 0.92rem;
   margin-bottom: 24px;
 }
+
+/* ==========================================================================
+   "A Letter to My Children" — serialized story feature
+   Landing hero + story hub (story.html) + chapter reader (chapter-*.html)
+   ========================================================================== */
+
+:root {
+  --paper-warm: #FBF7F0;              /* cream reading surface for chapters */
+  --line-warm: rgba(15, 42, 68, 0.16);
+}
+
+/* ---------- byline (shared: landing hero + chapter head) ---------- */
+
+.byline {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 26px 0 0;
+}
+
+.byline-photo {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  border: 2px solid var(--ink);
+  flex-shrink: 0;
+}
+
+.byline b {
+  display: block;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.byline span {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--slate);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* ---------- landing: story hero ---------- */
+
+.story-hero {
+  padding: 68px 0 58px;
+  border-bottom: 3px solid var(--ink);
+}
+
+.story-hero .wrap { max-width: 760px; }
+
+.story-hero h1 {
+  font-size: clamp(2.3rem, 5.4vw, 3.6rem);
+  margin-bottom: 0.25em;
+}
+
+.story-hero .subtitle {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+  color: var(--slate);
+  margin: 0 0 1em;
+}
+
+.story-hero-dek {
+  font-size: 1.12rem;
+  color: var(--ink);
+  max-width: 58ch;
+}
+
+/* featured latest chapter card */
+
+.chapter-feature {
+  margin-top: 34px;
+  border: 3px solid var(--ink);
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 6px 6px 0 var(--line);
+  padding: 26px 26px 28px;
+}
+
+.chapter-feature h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin: 6px 0 0.4em;
+}
+
+.chapter-feature p { color: var(--slate); max-width: 54ch; }
+
+.chapter-feature .btn { margin-top: 10px; }
+.chapter-feature .btn + .btn { margin-left: 10px; }
+
+@media (max-width: 480px) {
+  .chapter-feature .btn { display: block; text-align: center; }
+  .chapter-feature .btn + .btn { margin-left: 0; margin-top: 10px; }
+}
+
+/* band that re-introduces the campaign below the letter */
+
+.campaign-band .wrap { max-width: 1080px; }
+.campaign-band .lead-in {
+  max-width: 60ch;
+  font-size: 1.05rem;
+  color: var(--slate);
+}
+
+/* ---------- story hub (story.html) ---------- */
+
+.chapter-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chapter-list li {
+  border-top: 1px solid var(--line);
+  padding: 26px 0;
+  display: grid;
+  grid-template-columns: 3.4rem 1fr;
+  gap: 20px;
+}
+
+.chapter-list li:last-child { border-bottom: 1px solid var(--line); }
+
+.chapter-list .num {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  color: var(--gold-deep);
+  font-size: 1rem;
+  padding-top: 3px;
+}
+
+.chapter-list h3 { font-size: 1.35rem; margin-bottom: 0.25em; }
+.chapter-list h3 a { text-decoration: none; color: var(--ink); }
+.chapter-list h3 a:hover { color: var(--signal); }
+.chapter-list p { color: var(--slate); margin-bottom: 0.5em; max-width: 62ch; }
+
+.chapter-list .status {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.chapter-list li.upcoming { opacity: 0.7; }
+.chapter-list li.upcoming h3 { color: var(--slate); }
+
+@media (max-width: 480px) {
+  .chapter-list li { grid-template-columns: 1fr; gap: 6px; }
+}
+
+/* ---------- chapter reader (chapter-*.html) ---------- */
+
+body.reading { background: var(--paper-warm); }
+body.reading .site-nav { background: var(--paper-warm); }
+body.reading footer { background: var(--paper-warm); }
+
+.chapter {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 56px 28px 44px;
+}
+
+.chapter-head { margin-bottom: 34px; }
+
+.chapter-head .kicker {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.chapter-head h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0.35em 0 0;
+}
+
+.chapter-dateline {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-warm);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
+  color: var(--slate);
+}
+
+.chapter-body {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.16rem;
+  line-height: 1.72;
+  font-optical-sizing: auto;
+}
+
+.chapter-body p { margin: 0 0 1.25em; color: var(--ink); }
+
+.chapter-body > p:first-of-type::first-letter {
+  float: left;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 3.5em;
+  line-height: 0.8;
+  padding: 0.04em 0.12em 0 0;
+  color: var(--signal-dark);
+}
+
+.chapter-body h2 {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin: 2.5em 0 1.1em;
+}
+
+.chapter-continue {
+  margin-top: 40px;
+  border: 3px solid var(--ink);
+  border-radius: 6px;
+  background: #fff;
+  padding: 22px 24px;
+  box-shadow: 6px 6px 0 var(--line-warm);
+}
+
+.chapter-continue .kicker {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.chapter-continue strong {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+}
+
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line-warm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.chapter-nav a { text-decoration: none; }
+.chapter-nav a:hover { text-decoration: underline; }
+.chapter-nav .muted { color: var(--slate); font-weight: 400; }
+
+.chapter-campaign-note {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 28px 40px;
+  font-size: 0.9rem;
+  color: var(--slate);
+}
+
+.chapter-campaign-note a { font-weight: 600; }
+
+/* nav: stack brand over links once four items no longer fit one row */
+@media (max-width: 640px) {
+  .site-nav .wrap { flex-wrap: wrap; gap: 12px 0; }
+  .brand { flex: 1 1 100%; font-size: 1.05rem; }
+  .nav-links { flex-wrap: wrap; gap: 8px 18px; }
+}
