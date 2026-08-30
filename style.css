@@ -827,9 +827,18 @@ body.reading footer { background: var(--paper-warm); }
   .chapter-index-all { margin-left: 0; }
 }
 
-/* nav: stack brand over links once four items no longer fit one row */
+/* nav: stack brand over links once the buttons no longer fit one row,
+   and shrink the buttons so three of them clear a narrow phone screen */
 @media (max-width: 640px) {
   .site-nav .wrap { flex-wrap: wrap; gap: 12px 0; }
   .brand { flex: 1 1 100%; font-size: 1.05rem; }
-  .nav-links { flex-wrap: wrap; gap: 8px 18px; }
+  .nav-links { flex-wrap: wrap; gap: 8px 10px; }
+  .nav-links a { font-size: 0.82rem; }
+  .nav-links a.btn-donate { padding: 7px 11px; }
+}
+
+@media (max-width: 380px) {
+  .nav-links { gap: 6px 8px; }
+  .nav-links a { font-size: 0.78rem; }
+  .nav-links a.btn-donate { padding: 6px 9px; }
 }
