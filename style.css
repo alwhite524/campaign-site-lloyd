@@ -144,6 +144,16 @@ a { color: var(--signal); }
 
 .nav-links a.btn-donate:hover { background: var(--signal-dark); }
 
+.nav-links a.btn-donate.active { background: var(--signal-dark); }
+
+.nav-home {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink);
+}
+
+.nav-home svg { display: block; }
+
 /* ---------- buttons ---------- */
 
 .btn {
@@ -264,6 +274,7 @@ a { color: var(--signal); }
 /* ---------- sections ---------- */
 
 section { padding: 64px 0; }
+section[id] { scroll-margin-top: 88px; }
 section.dim { background: var(--paper-dim); }
 section.ink { background: var(--ink); color: var(--paper); }
 section.ink h2, section.ink .eyebrow { color: var(--paper); }

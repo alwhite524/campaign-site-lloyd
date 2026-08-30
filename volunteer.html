@@ -12,9 +12,10 @@
   <div class="wrap">
     <a href="index.html" class="brand">Lloyd White <strong>&bull;</strong> Beaumont City Council</a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" class="nav-home" aria-label="Home"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3 2 12h3v8h6v-5h2v5h6v-8h3z"/></svg></a></li>
       <li><a href="chapter-01.html">The Letter</a></li>
-      <li><a href="volunteer.html" class="active">Volunteer</a></li>
+      <li><a href="index.html#yard-signs" class="btn-donate">Yard Signs</a></li>
+      <li><a href="volunteer.html" class="btn-donate active">Volunteer</a></li>
       <li><a href="donate.html" class="btn-donate">Donate</a></li>
     </ul>
   </div>
@@ -80,12 +81,12 @@
   </div>
 </section>
 
-<section class="dim" style="padding-top:56px;">
+<section class="dim" id="yard-signs" style="padding-top:56px;">
   <div class="wrap" style="max-width:640px;">
     <div class="section-head">
       <span class="eyebrow">Show your support</span>
-      <h2>Request a yard sign</h2>
-      <p>We'll drop off or mail a sign to the address below. One sign per household unless you tell us otherwise.</p>
+      <h2>Reserve a yard sign</h2>
+      <p>The first run of signs is at the printer now &mdash; they&rsquo;re not in hand yet. Add your address below and you&rsquo;ll be first in line: a volunteer will drop one off as soon as the signs arrive. One sign per household unless you tell us otherwise.</p>
     </div>
 
     <form class="form-card" id="yard-sign-form">
@@ -119,7 +120,7 @@
         <label for="y-notes">Notes for the delivery volunteer</label>
         <textarea id="y-notes" name="notes" rows="3" placeholder="e.g. best time of day, where to place it, gate code"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary" style="width:100%;">Request sign</button>
+      <button type="submit" class="btn btn-primary" style="width:100%;">Reserve my sign</button>
       <p class="form-status" id="yard-sign-form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
@@ -214,7 +215,7 @@
   }
 
   wireForm('volunteer-form', 'volunteer', 'volunteer-form-status', "Thanks for signing up! We'll be in touch.");
-  wireForm('yard-sign-form', 'yard-sign', 'yard-sign-form-status', "Got it — a volunteer will coordinate delivery soon.");
+  wireForm('yard-sign-form', 'yard-sign', 'yard-sign-form-status', "You're on the list — we'll reach out as soon as the first signs arrive.");
 })();
 </script>
 
