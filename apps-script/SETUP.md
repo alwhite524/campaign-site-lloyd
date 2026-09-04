@@ -1,4 +1,4 @@
-# Setup: volunteer + yard-sign notifications via Google Sheets
+# Setup: volunteer, yard-sign + chapter-update notifications via Google Sheets
 
 One-time setup, done in your own Google account (alwhite524@gmail.com or
 whichever account you want owning the data). Takes about 5 minutes.
@@ -7,7 +7,7 @@ whichever account you want owning the data). Takes about 5 minutes.
 
 1. Go to [sheets.google.com](https://sheets.google.com) → **Blank spreadsheet**.
 2. Rename it something like **"Lloyd White Campaign — Signups"**.
-3. Leave it empty — the script creates the "Volunteers" and "Yard Signs" tabs
+3. Leave it empty — the script creates the "Volunteers", "Yard Signs" and "Chapter Updates" tabs
    automatically on first submission.
 
 ## 2. Add the script
@@ -25,7 +25,7 @@ whichever account you want owning the data). Takes about 5 minutes.
 1. Click **Deploy → New deployment**.
 2. Click the gear icon next to "Select type" → choose **Web app**.
 3. Settings:
-   - **Description:** Volunteer + yard sign intake
+   - **Description:** Campaign site signup intake
    - **Execute as:** Me (your account)
    - **Who has access:** Anyone
 4. Click **Deploy**.
