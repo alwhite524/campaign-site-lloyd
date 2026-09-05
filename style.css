@@ -650,7 +650,7 @@ body.reading .site-nav { background: var(--paper-warm); }
 body.reading footer { background: var(--paper-warm); }
 
 .chapter {
-  max-width: 680px;
+  max-width: 780px;
   margin: 0 auto;
   padding: 56px 28px 44px;
 }
@@ -751,7 +751,7 @@ body.reading footer { background: var(--paper-warm); }
 .chapter-nav .muted { color: var(--slate); font-weight: 400; }
 
 .chapter-campaign-note {
-  max-width: 680px;
+  max-width: 780px;
   margin: 0 auto;
   padding: 0 28px 40px;
   font-size: 0.9rem;
@@ -762,7 +762,7 @@ body.reading footer { background: var(--paper-warm); }
 
 /* chapter index rail — jump straight to any released chapter from the reader */
 .chapter-index {
-  max-width: 680px;
+  max-width: 780px;
   margin: 0 auto;
   padding: 20px 28px 0;
   display: flex;

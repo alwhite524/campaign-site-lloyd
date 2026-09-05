@@ -1,5 +1,5 @@
 /**
- * Lloyd White campaign site — volunteer / yard-sign intake backend.
+ * Lloyd White campaign site — volunteer, yard-sign and chapter-update intake backend.
  *
  * Lives in a Google Apps Script project bound to a Google Sheet. Receives
  * POSTs from volunteer.html, appends a row to the matching tab, and emails
@@ -23,6 +23,9 @@ var VOLUNTEER_HEADERS = ['Timestamp', 'First Name', 'Last Name', 'Email', 'Phone
 var YARD_SIGN_SHEET = 'Yard Signs';
 var YARD_SIGN_HEADERS = ['Timestamp', 'First Name', 'Last Name', 'Address', 'Phone/Email', 'Quantity', 'Notes'];
 
+var CHAPTER_UPDATE_SHEET = 'Chapter Updates';
+var CHAPTER_UPDATE_HEADERS = ['Timestamp', 'First Name', 'Last Name', 'Email'];
+
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
@@ -30,6 +33,8 @@ function doPost(e) {
       handleYardSign(data);
     } else if (data.formType === 'volunteer') {
       handleVolunteer(data);
+    } else if (data.formType === 'chapter-update') {
+      handleChapterUpdate(data);
     } else {
       throw new Error('Unknown formType: ' + data.formType);
     }
@@ -41,6 +46,33 @@ function doPost(e) {
       .createTextOutput(JSON.stringify({ result: 'error', message: err.message }))
       .setMimeType(ContentService.MimeType.JSON);
   }
+}
+
+function handleChapterUpdate(data) {
+  var sheet = getOrCreateSheet(CHAPTER_UPDATE_SHEET, CHAPTER_UPDATE_HEADERS);
+  var timestamp = new Date();
+
+  sheet.appendRow([
+    timestamp,
+    data.firstName || '',
+    data.lastName || '',
+    data.email || ''
+  ]);
+
+  var name = ((data.firstName || '') + ' ' + (data.lastName || '')).trim();
+  MailApp.sendEmail({
+    to: NOTIFY_EMAIL,
+    cc: NOTIFY_CC,
+    subject: '[' + CAMPAIGN_LABEL + '] New chapter update subscriber: ' + (name || data.email || 'unknown'),
+    body: [
+      'New chapter update subscription from the ' + CAMPAIGN_LABEL + ' campaign site:',
+      '',
+      'Name: ' + name,
+      'Email: ' + (data.email || ''),
+      '',
+      'Submitted: ' + timestamp
+    ].join('\n')
+  });
 }
 
 // Lets you open the deployed URL in a browser to sanity-check it's live.
