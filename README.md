@@ -11,7 +11,11 @@ Static HTML/CSS site. No build step — plain files served by GitHub Pages.
 
 ## Publishing a new chapter (weekly)
 
-1. **Copy the last chapter file:** duplicate `chapter-01.html` → `chapter-02.html`.
+1. **Copy the latest published chapter file:** for example, duplicate `chapter-04.html`
+   → `chapter-05.html`. This preserves the required GA4 tracking tag
+   (`G-0WGXLLVJK8`) on every future chapter. Before publishing, confirm the new
+   chapter still contains both the `googletagmanager.com/gtag/js` script and the
+   matching `gtag('config', 'G-0WGXLLVJK8')` line.
 2. In the new file, update: the `<title>`, the `<meta>` description + `og:` tags, the
    `.chapter-head` kicker (`Chapter Two`), the `<h1>` (the chapter's title), the
    `.chapter-dateline` date, and the `.chapter-body` prose.
